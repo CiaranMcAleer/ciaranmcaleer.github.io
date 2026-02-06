@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ciaran McAleer - Junior AI Engineer</title>
+    <title>{{ if .Title }}{{ .Title }}{{ else }}Ciaran McAleer - Junior AI Engineer{{ end }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
@@ -78,14 +78,14 @@
             display: none;
         }
 
-         
+        /* Fix for fixed nav covering section headers */
         [id] {
             scroll-margin-top: 120px;
         }
     </style>
 </head>
 <body class="min-h-screen">
-    
+    <!-- Navigation -->
     <nav class="fixed w-full z-50 py-4 px-6 glass-card">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="#" class="text-xl font-bold text-primary flex items-center">
@@ -109,7 +109,7 @@
         </div>
     </nav>
 
-    
+    <!-- Hero Section -->
     <section class="pt-32 pb-20 px-6">
         <div class="max-w-7xl mx-auto text-center">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
@@ -129,39 +129,14 @@
         </div>
     </section>
 
-    
+    <!-- Main Content -->
     <div class="pb-20 px-6">
         <div class="max-w-4xl mx-auto prose prose-invert prose-lg">
-            <h2><span id="about">About Me</span></h2>
-<p>Junior AI Engineer at @Trustie Technology. BEng Software Engineering graduate from Queen's University Belfast.</p>
-<h2><span id="experience">Experience</span></h2>
-<pre class="mermaid">gantt
-    dateFormat YYYY-MM-DD
-    axisFormat %b %Y
-    tickInterval 6month
-    title Professional Experience
-    Junior AI Engineer - Trustie Technology :done, 2025-10-01, 2025-12-31
-    IT Support - Belfast Health and Social Care Trust :done, 2025-08-01, 2025-10-31
-    Lifeguard - GLL :active, 2023-09-01, 2025-10-31
-    Undergraduate Placement - ESB Networks :done, 2022-06-01, 2023-06-30
-    Clerical Officer - Northern Health and Social Care Trust :done, 2021-07-01, 2021-09-30
-    Lifeguard - Mid Ulster District Council :active, 2018-10-01, 2023-09-30
-</pre><h2><span id="education">Education</span></h2>
-<pre class="mermaid">graph TD
-    A[&#34;Queen&#39;s University Belfast&lt;br/&gt;Software Engineering - BEng&lt;br/&gt;September 2020 - June 2025&#34;]
-    style A fill:#6366f1,color:#fff
-</pre><h2><span id="certifications">Certifications</span></h2>
-<pre class="mermaid">graph TD
-    A[Databricks Generative AI Fundamentals] --&gt; B[Databricks Generative AI Application Development]
-    style A fill:#6366f1,color:#fff
-    style B fill:#8b5cf6,color:#fff
-    click A &#34;https://github.com/CiaranMcAleer/CiaranMcAleer/blob/30ad57a44ffcb9538e5d80c7bd0ea47515efe206/Certifications/Databricks%20Generative%20AI%20Fundamentals.pdf&#34; _blank
-    click B &#34;https://github.com/CiaranMcAleer/CiaranMcAleer/blob/30ad57a44ffcb9538e5d80c7bd0ea47515efe206/Certifications/Databricks%20Generative%20AI%20Application%20Development.pdf&#34; _blank
-</pre><script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script><script>mermaid.initialize({startOnLoad: true});</script>
+            {{ .Content }}
         </div>
     </div>
 
-    
+    <!-- Footer -->
     <footer class="py-12 px-6 border-t border-gray-800">
         <div class="max-w-7xl mx-auto text-center">
             <div class="mb-6">
@@ -182,13 +157,13 @@
             </div>
 
             <div class="text-gray-500">
-                <p>© 2025 Ciaran McAleer. All rights reserved.</p>
+                <p>© 2026 Ciaran McAleer. All rights reserved.</p>
                 <p class="mt-2 text-sm">Built with <a href="https://github.com/CiaranMcAleer/colade" class="text-primary hover:underline">Colade</a></p>
             </div>
         </div>
     </footer>
 
-    <!-- Portfolio Header -->
-    <!-- Portfolio Footer -->
+    {{ .HeaderHTML }}
+    {{ .FooterHTML }}
 </body>
 </html>
